@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "dev": "ts-node-dev --transpile-only --no-notify"
+    "dev": "ts-node-dev --transpile-only --no-notify src"
   },
   "keywords": [],
   "author": "",

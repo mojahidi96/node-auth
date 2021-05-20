@@ -1,4 +1,3 @@
-import { Request } from 'express'
 
 export const isLoggedIn = (req: any) => !!req.session.userId
 
