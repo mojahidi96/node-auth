@@ -17,13 +17,25 @@ npx tsc
 
 ## curl
 
-For GET method
+#### For GET method
 ```sh
 curl http://localhost:4202/register
 ```
 
-For POST method
+#### For POST method
+ /register
 ```sh
-curl -H "Content-Type: application/json" -v -X POST http://localhost:4202/register -d "{\"email\":\"mojahidi96@gmail.com\",\"name\":\"Mojahid\",\"password\":\"secret@123\", \"passwordConfirmation\":\"secret@123\"}"
+curl -H "Content-Type: application/json" -v -X POST http://localhost:4202/register -d "{\"email\":\"mojahidi96@gmail.com\",\"name\":\"Mojahid\",\"password\":\"Secret123\", \"passwordConfirmation\":\"Secret123\"}"
 
 ```
+
+/login
+```sh
+curl -H "Content-Type: application/json" -v -X POST http://localhost:4202/login -d "{\"email\":\"mojahidi96@gmail.com\",\"password\":\"Secret123\"}"
+
+```
+
+## References
+https://medium.com/hackernoon/your-node-js-authentication-tutorial-is-wrong-f1a3bf831a46
+
+https://github.com/alex996/node-auth
