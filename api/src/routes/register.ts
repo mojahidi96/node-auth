@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { Request, Response, Router } from 'express'
 import { logIn } from '../auth'
 import { BadRequest } from '../errors'
 import { catchAsync, guest } from '../middleware'
@@ -7,7 +7,8 @@ import { registerSchema, validate } from '../validatoins'
 
 const router = Router()
 
-router.post('/register', guest, catchAsync(async (req, res) => {
+router.post('/register', guest, catchAsync(async (req: Request, res: Response) => {
+
     await validate(registerSchema, req.body)
 
     const { email, name, password } = req.body

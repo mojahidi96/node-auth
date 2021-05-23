@@ -6,7 +6,7 @@ interface UserDocument extends Document {
     email: string,
     name: string,
     password: string,
-    matchesPassword: (password: string) => Promise<boolean>
+    validatePassword: (password: string) => Promise<boolean>
 }
 
 const userSchema = new Schema({
@@ -26,5 +26,9 @@ userSchema.pre<UserDocument>('save', async function () {
 userSchema.methods.validatePassword = function (password: string) {
     return compare(password, this.password);
 };
+
+userSchema.set('toJSON', {
+    transform: (dot, { __v, password, ...rest }, options) => rest
+})
 
 export const User = model<UserDocument>('User', userSchema)

@@ -1,11 +1,11 @@
-import express from 'express'
+import { Router } from 'express'
 import { logIn, logOut } from '../auth'
 import { Unauthorized } from '../errors'
 import { auth, catchAsync, guest } from '../middleware'
 import { User } from '../model'
 import { loginSchema, validate } from '../validatoins'
 
-const router = express.Router()
+const router = Router()
 
 router.post('/login', guest, catchAsync(async (req, res) => {
     await validate(loginSchema, req.body)
