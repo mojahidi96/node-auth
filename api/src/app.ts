@@ -1,7 +1,7 @@
 import express from 'express'
 import session, { Store } from 'express-session'
 import { SESSION_OPTIONS } from './config/index'
-import { internalServerError, notFound } from './middleware'
+import { active, catchAsync, internalServerError, notFound } from './middleware'
 import { home, login, register } from './routes'
 
 export const createApp = (store: Store) => {
@@ -11,6 +11,8 @@ export const createApp = (store: Store) => {
         ...SESSION_OPTIONS,
         store
     }))
+
+    app.use(catchAsync(active))
 
     app.use(home)
 
