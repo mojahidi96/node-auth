@@ -1,7 +1,6 @@
 import { SessionOptions } from "express-session"
 import { IN_PROD } from "./app"
-
-const ONE_HOUR = 1000 * 60 * 60
+import { ONE_HOUR } from "./auth";
 
 const HALF_HOUR = ONE_HOUR / 2
 

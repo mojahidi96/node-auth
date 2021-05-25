@@ -1,6 +1,7 @@
 
 import { Request, Response } from 'express'
 import { SESSION_NAME } from './config'
+import { UserDocument } from './model'
 export const isLoggedIn = (req: any) => !!req.session.userId
 
 export const logIn = (req: any, userId: string) => {
@@ -16,3 +17,13 @@ export const logOut = (req: Request, res: Response) =>
             resolve(true)
         })
     })
+
+export const markAsVerified = async (user: UserDocument) => {
+    user.verifiedAt = new Date()
+    await user.save()
+}
+
+export const resetPassword = async (user: UserDocument, password: string) => {
+    user.password = password
+    await user.save()
+}

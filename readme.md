@@ -35,6 +35,14 @@ curl -H "Content-Type: application/json" -v -X POST http://localhost:4202/login 
 
 ```
 
+/login
+```sh
+curl -v -X POST localhost:4202/email/resend -H "Content-Type: application/json" -d "{\"email\":\"mojahidi96@gmail.com\"}"
+
+
+```
+
+
 ## References
 https://medium.com/hackernoon/your-node-js-authentication-tutorial-is-wrong-f1a3bf831a46
 
